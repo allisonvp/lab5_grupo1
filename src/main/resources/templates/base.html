@@ -34,11 +34,11 @@
 
         <div class="d-inline-flex">
             <div sec:authorize="isAnonymous()" id="usuarioAnonimo">
-                <a class="btn btn-info">Iniciar Sesión</a>
+                <a class="btn btn-info" th:href="@{/loginForm}">Iniciar Sesión</a>
             </div>
             <div sec:authorize="isAuthenticated()" id="usuarioAutenticado">
-                <span>Bienvenido ___</span>
-                <a class="btn btn-info">Cerrar Sesión</a>
+                <span th:text="|Bienvenido ${session.usuario.firstname} ${session.usuario.lastname} (${session.usuario.rolEntity.rolename})|">Bienvenido ___</span>
+                <a class="btn btn-info" th:action="@{/logout}">Cerrar Sesión</a>
             </div>
         </div>
     </nav>
