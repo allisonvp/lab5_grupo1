@@ -20,9 +20,11 @@
                 <label for="content">Contenido</label>
                 <input name="content" type="text" class="form-control" id="content">
             </div>
-
+            <div sec:authorize="isAuthenticated()" sec:authorize="hasAuthority('admin')"class="form-inline my-2 my-lg-0">
             <a th:href="@{/post/list}" class="btn btn-danger">Cancelar</a>
+            </div>
             <button type="submit" class="btn btn-primary">Registrar</button>
+
         </form>
     </body>
 </html>
