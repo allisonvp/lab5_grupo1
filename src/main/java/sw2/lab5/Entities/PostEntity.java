@@ -10,8 +10,9 @@ public class PostEntity {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column(name="id_post")
     private int idpost;
-    @Column(nullable = false, name="author_id")
-    private int authorid;
+    @ManyToOne
+    @JoinColumn(nullable = false, name="author_id")
+    private UsuarioEntity user;
     @Column(nullable = false)
     private String title;
     private String summary;
@@ -27,12 +28,12 @@ public class PostEntity {
         this.idpost = idpost;
     }
 
-    public int getAuthorid() {
-        return authorid;
+    public UsuarioEntity getUser() {
+        return user;
     }
 
-    public void setAuthorid(int authorid) {
-        this.authorid = authorid;
+    public void setUser(UsuarioEntity user) {
+        this.user = user;
     }
 
     public String getTitle() {
