@@ -38,11 +38,8 @@ public class PostController {
     @PostMapping(value="/save")
     public String guardarPost(PostEntity postEntity,HttpSession session){
         UsuarioEntity user = (UsuarioEntity) session.getAttribute("user");
-        if(postEntity.getIdpost()==0){
-            List<PostEntity> listPost = postRepository.buscarPostPorAutor(user);
-            postRepository.save(listPost);
-        }
-        postRepository.save(listPost);
+        postEntity.setUser(user);
+        postRepository.save(postEntity);
         return "redirect:/post/list";
     }
 
