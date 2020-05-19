@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Title</title>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:insert="base :: head(NewPost)">
     </head>
     <body>
-        
+        <nav th:insert="base :: navbar"></nav>
+
+        <h2>Nuevo Post</h2><hr />
+        <form method="post" th:action="@{/post/save}">
+
+            <input type="hidden" class="form-control" name="idpost" th:value="${post.idpost}" >
+
+            <div class="form-group">
+                <label for="title">Titulo</label>
+                <input name="title" type="text" class="form-control" id="title" th:value="${post.title}">
+            </div>
+            <div class="form-group">
+                <label for="summary">Resumen</label>
+                <input name="summary" type="text" class="form-control" id="summary" th:value="${post.summary}"">
+            </div>
+            <div class="form-group">
+                <label for="content">Contenido</label>
+                <input name="content" type="text" class="form-control" id="content" th:value="${post.content}"">
+            </div>
+
+            <a th:href="@{/post/list}" class="btn btn-danger">Cancelar</a>
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+        </form>
     </body>
 </html>
+
