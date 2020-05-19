@@ -30,8 +30,8 @@ public class LoginController {
         }
 
         String username = auth.getName();
-        UsuarioEntity usuario = usuarioRepository.findByEmail(username);
-        session.setAttribute("user", usuario);
+        UsuarioEntity usuarioEntity = usuarioRepository.findByEmail(username);
+        session.setAttribute("usuario", usuarioEntity);
 
         if (rol.equals("admin")) {
             return "redirect:/post/";

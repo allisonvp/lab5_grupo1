@@ -7,12 +7,11 @@ import javax.persistence.*;
 public class UsuarioEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_user")
-    private int iduser;
-    @Column(name = "firstName",nullable = false)
-    private String firstname;
-    @Column(name = "lastName",nullable = false)
-    private String lastname;
+    private int id_user;
+    @Column(nullable = false)
+    private String firstName;
+    @Column(nullable = false)
+    private String lastName;
     @Column(nullable = false)
     private String email;
     @Column(nullable = false)
@@ -25,28 +24,36 @@ public class UsuarioEntity {
     @JoinColumn(name = "id_role",nullable = false)
     private RolEntity rol;
 
-    public int getIduser() {
-        return iduser;
+    public int getId_user() {
+        return id_user;
     }
 
-    public void setIduser(int iduser) {
-        this.iduser = iduser;
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public RolEntity getRol() {
+        return rol;
+    }
+
+    public void setRol(RolEntity rol) {
+        this.rol = rol;
     }
 
     public String getEmail() {
