@@ -38,7 +38,10 @@
             </div>
             <div sec:authorize="isAuthenticated()" id="usuarioAutenticado">
                 <span th:text="|Bienvenido ${session.usuario.firstName} ${session.usuario.lastName} (${session.usuario.rolEntity.rolename})|">Bienvenido ___</span>
-                <a class="btn btn-info" th:action="@{/logout}">Cerrar Sesión</a>
+                <form th:action="@{/logout}" method="post">
+                    <input class="btn btn-link" type="submit" value="(Cerrar Sesión)"/>
+                </form>
+
             </div>
         </div>
     </nav>
