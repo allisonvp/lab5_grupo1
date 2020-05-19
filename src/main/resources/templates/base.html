@@ -22,7 +22,7 @@
                 <a class="nav-link" href="#">Listar Posts</a>
             </li>
             <li sec:authorize="hasAuthority('admin')" class="nav-item">
-                <a class="nav-link" href="#">Listar Usuarios</a>
+                <a class="nav-link" th:href="@{/user}">Listar Usuarios</a>
             </li>
             <li sec:authorize="hasAnyAuthority('admin', 'user')" class="nav-item">
                 <a class="nav-link" href="#">Ver Mi Perfil</a>
