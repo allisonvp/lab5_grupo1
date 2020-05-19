@@ -1,7 +1,6 @@
 package sw2.lab5.Entities;
 
 import javax.persistence.*;
-import javax.validation.constraints.Digits;
 
 @Entity
 @Table(name = "user")
@@ -24,7 +23,7 @@ public class UsuarioEntity {
     private boolean active;
     @ManyToOne
     @JoinColumn(name = "id_role",nullable = false)
-    private Rol rol;
+    private RolEntity rol;
 
     public int getIduser() {
         return iduser;
@@ -90,11 +89,11 @@ public class UsuarioEntity {
         this.active = active;
     }
 
-    public Rol getRol() {
+    public RolEntity getRolEntity() {
         return rol;
     }
 
-    public void setRol(Rol rol) {
+    public void setRolEntity(RolEntity rol) {
         this.rol = rol;
     }
 }
