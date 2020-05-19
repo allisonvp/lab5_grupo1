@@ -22,7 +22,7 @@
                 <tr th:each="l: ${listaPost}">
                     <td th:text="${l.idpost}"></td>
                     <td th:text="${l.title}"></td>
-                    <td th:text="${l.user.firstname} + ' ' +${l.user.lastname}"></td>
+                    <td th:text="${l.user.firstName} + ' ' +${l.user.lastName}"></td>
                     <td th:text="${l.summary}"></td>
                     <!--td><a th:href="@{|/shipper/editar'?'id=${shipper.shipperid}|}">Editar</a></td=-->
                     <td><a th:href="@{'/post/edit?id='+${l.idpost}}"class="btn btn-primary">Editar</a></td>
