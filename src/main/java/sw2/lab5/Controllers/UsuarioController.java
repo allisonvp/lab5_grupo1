@@ -27,7 +27,7 @@ public class UsuarioController {
         return "user/listaUsuarios";
     }
     @GetMapping("/edit")
-    public String editarRegion(@ModelAttribute("user") @Valid UsuarioEntity user,
+    public String editarUser(@ModelAttribute("user") @Valid UsuarioEntity user,
                                @RequestParam("id") int id,
                                Model model) {
         Optional<UsuarioEntity> opt = usuarioRepository.findById(id);
