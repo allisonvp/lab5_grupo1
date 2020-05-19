@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" href="https://getbootstrap.com/docs/4.4/examples/sign-in/signin.css"/>
+        <script th:src="@{/js/jquery-3.4.1.slim.min.js}"></script>
+        <script th:src="@{/js/popper.min.js}"></script>
+        <script th:src="@{/js/bootstrap.min.js}"></script>
+        <title>Ingreso al sistema</title>
+    </head>
+    <body class="text-center">
+        <div class="container theme-showcase">
+            <form class="form-signin" th:action="@{/processLogin}" method="post">
+                <h3 class="form-signin-heading">Acceso</h3>
+                <label for="username" class="sr-only">Correo</label>
+                <input type="text" id="username" name="username" class="form-control" placeholder="Usuario" required
+                       autofocus>
+                <label for="password" class="sr-only">Contraseña</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Password"
+                       required>
+                <h4 th:if="${param.error}" class="form-signin-heading" style="color:red">Acceso denegado</h4>
+                <input type="submit" class="btn btn-lg btn-primary btn-block" value="Ingresar"></input>
+            </form>
+        </div>
+    </body>
+</html>

@@ -19,21 +19,24 @@
         <ul class="navbar-nav">
             <a class="navbar-brand" href="#">Blog Telecom</a>
             <li class="nav-item">
-                <a class="nav-link" href="#">Link 1</a>
+                <a class="nav-link" href="#">Listar Posts</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link 2</a>
+            <li sec:authorize="hasAuthority('admin')" class="nav-item">
+                <a class="nav-link" href="#">Listar Usuarios</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link 3</a>
+            <li sec:authorize="hasAnyAuthority('admin', 'user')" class="nav-item">
+                <a class="nav-link" href="#">Ver Mi Perfil</a>
+            </li>
+            <li sec:authorize="hasAnyAuthority('admin', 'user')" class="nav-item">
+                <a class="nav-link" href="#">Crear Posts</a>
             </li>
         </ul>
 
         <div class="d-inline-flex">
-            <div id="usuarioAnonimo">
+            <div sec:authorize="isAnonymous()" id="usuarioAnonimo">
                 <a class="btn btn-info">Iniciar Sesión</a>
             </div>
-            <div id="usuarioAutenticado">
+            <div sec:authorize="isAuthenticated()" id="usuarioAutenticado">
                 <span>Bienvenido ___</span>
                 <a class="btn btn-info">Cerrar Sesión</a>
             </div>
