@@ -19,7 +19,7 @@
         <ul class="navbar-nav">
             <a class="navbar-brand" href="#">Blog Telecom</a>
             <li class="nav-item">
-                <a class="nav-link" href="#">Listar Posts</a>
+                <a class="nav-link" th:href="@{/post}">Listar Posts</a>
             </li>
             <li sec:authorize="hasAuthority('admin')" class="nav-item">
                 <a class="nav-link" href="#">Listar Usuarios</a>
@@ -38,7 +38,7 @@
             </div>
             <div sec:authorize="isAuthenticated()" id="usuarioAutenticado">
                 <span th:text="|Bienvenido ${session.usuario.firstName} ${session.usuario.lastName} (${session.usuario.rolEntity.rolename})|">Bienvenido ___</span>
-                <a class="btn btn-info" th:action="@{/logout}">Cerrar Sesión</a>
+                <a class="btn btn-info" th:href="@{/logout}">Cerrar Sesión</a>
             </div>
         </div>
     </nav>
