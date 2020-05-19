@@ -8,8 +8,9 @@ public class PostEntity {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column(name="id_post")
     private int idpost;
-    @Column(nullable = false)
+    @Column(nullable = false, name="author_id")
     private int authorid;
     @Column(nullable = false)
     private String title;
