@@ -1,10 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Title</title>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:insert="base :: head(index)">
     </head>
     <body>
+        <nav th:insert="base :: navbar"></nav>
         
+        <div class="container" id="contenido">
+            <h2 >Editar Usuario</h2>
+    
+            <form method="post" th:object="${user}" th:action="@{'/user/save'}">
+                <div class="form-group">
+                    <input hidden type="text" class="form-control" th:field="*{id_user}">
+            
+                    <label >Nombre del Usuario: </label>
+                    <input  type="text" class="form-control" th:field="*{firstName}">
+                    <div class="text-danger" th:if="${#fields.hasErrors('firstName')}"
+                         th:errors="*{firstName}"></div>
+    
+                    <label >Apellido del Usuario: </label>
+                    <input  type="text" class="form-control" th:field="*{lastName}">
+                    <div class="text-danger" th:if="${#fields.hasErrors('lastName')}"
+                         th:errors="*{lastName}"></div>
+    
+                    <label >Texto de introducción: </label>
+                    <input  type="text" class="form-control" th:field="*{intro}">
+                    <div class="text-danger" th:if="${#fields.hasErrors('intro')}"
+                         th:errors="*{intro}"></div>
+    
+    
+                    <label >Texto de perfil: </label>
+                    <input  type="text" class="form-control" th:field="*{profile}">
+                    <div class="text-danger" th:if="${#fields.hasErrors('profile')}"
+                         th:errors="*{profile}"></div>
+                    
+                    
+                </div>
+        
+                <a th:href="@{'/user/list'}" class="btn btn-danger">Cancelar</a>
+                <button type="submit" class="btn btn-primary" >Actualizar</button>
+            </form>
+        </div>
     </body>
 </html>
